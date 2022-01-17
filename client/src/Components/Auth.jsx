@@ -23,7 +23,7 @@ const Auth = () => {
     e.preventDefault();
     const { username, password, phoneNumber, avatarURL } = form;
 
-    const URL = "https://canna-cure.herokuapp.com//auth";
+    const URL = "https://canna-cure.herokuapp.com/auth";
     const {
       data: { token, userId, hashedPassword, fullName },
     } = await axios.post(`${URL}/${isSignup ? "signup" : "login"}`, {
