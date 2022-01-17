@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Cookies from "universal-cookie";
 import axios from "axios";
 
-import signinImage from "../assets/signup.jpg";
+import signinImage from "../assets/IMG-20190822-WA0008.jpg";
 
 const cookies = new Cookies();
 const initialState = {
@@ -54,29 +54,31 @@ const Auth = () => {
         <div className="auth__form-container_fields-content">
           <p>{isSignup ? "Sign Up" : "Sign In"}</p>
           <form onSubmit={handleSubmit}>
-            {isSignup && (
+            <div className="auth__form-container_fields-content_input__name__username">
+              {isSignup && (
+                <div className="auth__form-container_fields-content_input">
+                  <label htmlFor="fullName">Full Name</label>
+                  <input
+                    className=""
+                    name="fullName"
+                    type="text"
+                    placeholder="Full Name"
+                    onChange={handleChange}
+                    required
+                  />
+                </div>
+              )}{" "}
               <div className="auth__form-container_fields-content_input">
-                <label htmlFor="fullName">Full Name</label>
+                <label htmlFor="username">username</label>
                 <input
                   className=""
-                  name="fullName"
+                  name="username"
                   type="text"
-                  placeholder="Full Name"
+                  placeholder="User Name"
                   onChange={handleChange}
                   required
                 />
               </div>
-            )}{" "}
-            <div className="auth__form-container_fields-content_input">
-              <label htmlFor="username">username</label>
-              <input
-                className=""
-                name="username"
-                type="text"
-                placeholder="User Name"
-                onChange={handleChange}
-                required
-              />
             </div>
             {isSignup && (
               <div className="auth__form-container_fields-content_input">
@@ -100,34 +102,35 @@ const Auth = () => {
                   type="text"
                   placeholder="Avatar URL"
                   onChange={handleChange}
-                  required
                 />
               </div>
             )}{" "}
-            <div className="auth__form-container_fields-content_input">
-              <label htmlFor="password">Password</label>
-              <input
-                className=""
-                name="password"
-                type="password"
-                placeholder="Password"
-                onChange={handleChange}
-                required
-              />
-            </div>
-            {isSignup && (
+            <div className="auth__form-container_fields-content_input__password">
               <div className="auth__form-container_fields-content_input">
-                <label htmlFor="confirmPassword">Confirm Password</label>
+                <label htmlFor="password">Password</label>
                 <input
                   className=""
-                  name="confirmPassword"
+                  name="password"
                   type="password"
-                  placeholder="Confirm Password"
+                  placeholder="Password"
                   onChange={handleChange}
                   required
                 />
               </div>
-            )}{" "}
+              {isSignup && (
+                <div className="auth__form-container_fields-content_input">
+                  <label htmlFor="confirmPassword">Confirm Password</label>
+                  <input
+                    className=""
+                    name="confirmPassword"
+                    type="password"
+                    placeholder="Confirm Password"
+                    onChange={handleChange}
+                    required
+                  />
+                </div>
+              )}
+            </div>
             <div className="auth__form-container_fields-content_button">
               <button>{isSignup ? "Sign Up" : "Sign In"}</button>
             </div>{" "}
@@ -143,7 +146,7 @@ const Auth = () => {
         </div>
       </div>
       <div className="auth__form-container_image">
-        <img src={signinImage} alt="sign in" />
+        <img src={signinImage} alt="sign in" size={60} />
       </div>
     </div>
   );

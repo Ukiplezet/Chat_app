@@ -4,7 +4,6 @@ import Cookies from "universal-cookie";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCannabis } from "@fortawesome/free-solid-svg-icons";
 import { ChannelSearch, TeamChannelList, TeamChannelPreview } from "./";
-import HospitalIcon from "../assets/hospital.png";
 import LogoutIcon from "../assets/logout.png";
 
 const cookies = new Cookies();
@@ -13,7 +12,6 @@ const SideBar = ({ logout }) => (
   <div className="channel-list__sidebar">
     <div className="channel-list__sidebar__icon1">
       <div className="icon1__inner">
-        {/* <img src={faCannabis} alt="Hospital" width="30" /> */}
         <FontAwesomeIcon
           icon={faCannabis}
           style={{ cursor: "pointer" }}
