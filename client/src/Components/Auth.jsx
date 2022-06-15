@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Cookies from "universal-cookie";
 import axios from "axios";
 
-import signinImage from "../assets/IMG-20190822-WA0008.jpg";
+import signinImage from "../assets/cover1.jpg";
 
 const cookies = new Cookies();
 const initialState = {
@@ -15,7 +15,7 @@ const initialState = {
 };
 const Auth = () => {
   const [form, setForm] = useState(initialState);
-  const [isSignup, setIsSignup] = useState(true);
+  const [isSignup, setIsSignup] = useState(false);
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
@@ -23,26 +23,31 @@ const Auth = () => {
     e.preventDefault();
     const { username, password, phoneNumber, avatarURL } = form;
 
-    const URL = "https://canna-cure.herokuapp.com/auth";
-    const {
-      data: { token, userId, hashedPassword, fullName },
-    } = await axios.post(`${URL}/${isSignup ? "signup" : "login"}`, {
-      fullName: form.fullName,
-      username,
-      password,
-      phoneNumber,
-      avatarURL,
-    });
-    cookies.set("token", token);
-    cookies.set("username", username);
-    cookies.set("fullName", fullName);
-    cookies.set("userId", userId);
-    if (isSignup) {
-      cookies.set("hashedPassword", hashedPassword);
-      cookies.set("phoneNumber", phoneNumber);
-      cookies.set("avatarURL", avatarURL);
+    // const URL = "https://canna-cure.herokuapp.com/auth";
+    const URL = "http://localhost:5000/auth";
+    try {
+      const {
+        data: { token, userId, hashedPassword, fullName },
+      } = await axios.post(`${URL}/${isSignup ? "signup" : "login"}`, {
+        fullName: form.fullName,
+        username,
+        password,
+        phoneNumber,
+        avatarURL,
+      });
+      cookies.set("token", token);
+      cookies.set("username", username);
+      cookies.set("fullName", fullName);
+      cookies.set("userId", userId);
+      if (isSignup) {
+        cookies.set("hashedPassword", hashedPassword);
+        cookies.set("phoneNumber", phoneNumber);
+        cookies.set("avatarURL", avatarURL);
+      }
+      window.location.reload();
+    } catch (error) {
+      return alert(error.response.data);
     }
-    window.location.reload();
   };
   const switchMode = () => {
     setIsSignup((prevIsSignup) => !prevIsSignup);

@@ -11,7 +11,6 @@ const app_id = process.env.STREAM_APP_ID;
 const signup = async (req, res) => {
   try {
     const { fullName, username, password, phoneNumber } = req.body;
-
     const userId = crypto.randomBytes(16).toString("hex");
 
     const serverClient = connect(api_key, api_secret, app_id);
@@ -22,10 +21,10 @@ const signup = async (req, res) => {
 
     res
       .status(200)
-      .json({ token, fullName, username, userId, hashedPassword, phoneNumber });
+      .send({ token, fullName, username, userId, hashedPassword, phoneNumber });
   } catch (error) {
     console.log(error);
-    res.status(500).json({ message: error });
+    res.status(500).send(error);
   }
 };
 
@@ -38,8 +37,7 @@ const login = async (req, res) => {
     const client = StreamChat.getInstance(api_key, api_secret);
     const { users } = await client.queryUsers({ name: username });
 
-    if (!users.length)
-      return res.status(400).json({ message: "User Not Found!" });
+    if (!users.length) return res.status(400).send("User Not Found!");
 
     const success = await bcrypt.compare(password, users[0].hashedPassword);
     const token = serverClient.createUserToken(users[0].id);
@@ -48,11 +46,11 @@ const login = async (req, res) => {
         .status(200)
         .json({ token, fullName: users[0].fullName, userId: users[0].id });
     } else {
-      res.status(500).json({ message: "Incorrect Password" });
+      res.status(500).send("Incorrect Password");
     }
   } catch (error) {
     console.log(error);
-    res.status(500).json({ message: error });
+    res.status(500).send(error);
   }
 };
 

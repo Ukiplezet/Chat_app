@@ -1,4 +1,4 @@
-import react, { useState } from "react";
+import React, { useState } from "react";
 import { StreamChat } from "stream-chat";
 import { Chat } from "stream-chat-react";
 import Cookies from "universal-cookie";
@@ -7,8 +7,9 @@ import { ChannelContainer, ChannelListContainer, Auth } from "./Components";
 
 import "./App.css";
 import "stream-chat-react/dist/css/index.css";
+
 const cookies = new Cookies();
-const apiKey = `2agrdu9zxejz`;
+const apiKey = `a42c2zm4zqma`;
 
 const client = StreamChat.getInstance(apiKey);
 

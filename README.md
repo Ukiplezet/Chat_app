@@ -1,6 +1,6 @@
-# Canna-Cure
+# Slash
 
-A real-time chatting app
+A real-time chatting app (Slack clone)
 
 ### [Online Demo](https://canna-cure.netlify.app/)
 

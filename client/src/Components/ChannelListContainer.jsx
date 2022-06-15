@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { ChannelList, useChatContext } from "stream-chat-react";
 import Cookies from "universal-cookie";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCannabis } from "@fortawesome/free-solid-svg-icons";
+import { faComments } from "@fortawesome/free-solid-svg-icons";
 import { ChannelSearch, TeamChannelList, TeamChannelPreview } from "./";
 import LogoutIcon from "../assets/logout.png";
 
@@ -13,7 +13,8 @@ const SideBar = ({ logout }) => (
     <div className="channel-list__sidebar__icon1">
       <div className="icon1__inner">
         <FontAwesomeIcon
-          icon={faCannabis}
+          icon={faComments}
+          alt="hospital"
           style={{ cursor: "pointer" }}
           className="text-light"
           size="lg"
@@ -30,7 +31,7 @@ const SideBar = ({ logout }) => (
 
 const CompanyHeader = () => (
   <div className="channel-list__header">
-    <p className="channel-list__header__text">Canna - Cure</p>
+    <p className="channel-list__header__text">Slash Messaging</p>
   </div>
 );
 
