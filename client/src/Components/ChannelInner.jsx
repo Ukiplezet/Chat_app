@@ -9,6 +9,7 @@ import {
   useChannelStateContext,
   useChatContext,
 } from "stream-chat-react";
+import Cookies from "universal-cookie";
 
 import { ChannelInfo } from "../assets";
 
@@ -101,13 +102,19 @@ const TeamChannelHeader = ({ setIsEditing }) => {
     if (watchers === 1) return "1 user online";
     return `${watchers} users online`;
   };
-
+  const getUserFullName = () => {
+    const fullName = document.cookie.split("=")[2].split(" ")[0].slice(0, -1);
+    console.log(fullName);
+    return `Hi ${fullName}!  , `;
+  };
   return (
     <div className="team-channel-header__container">
       <MessagingHeader />
       <div className="team-channel-header__right">
+        <p className="team-channel-header__right-text">{getUserFullName()}</p>
+        
         <p className="team-channel-header__right-text">
-          {getWatcherText(watcher_count)}
+          There are {getWatcherText(watcher_count)}
         </p>
       </div>
     </div>
