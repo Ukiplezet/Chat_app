@@ -23,8 +23,7 @@ const Auth = () => {
     e.preventDefault();
     const { username, password, phoneNumber, avatarURL } = form;
 
-    // const URL = "https://canna-cure.herokuapp.com/auth";
-    const URL = "http://localhost:5000/auth";
+    const URL = " https://instant-message-slash.herokuapp.com/auth";
     try {
       const {
         data: { token, userId, hashedPassword, fullName },
