@@ -10,7 +10,7 @@
     "start": "node index.js",
     "dev": "nodemon index.js",
     "build": "node build",
-    "heroku-postbuild": "ng build --prod"
+    "heroku-postbuild": "node build --prod"
   },
   "keywords": [],
   "author": "",
