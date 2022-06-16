@@ -25,7 +25,7 @@ Users can:
 
 ### Signup page:
 
-![Alt text](Project_images\chat_app_cover.png?raw=true "Signup page")
+![Alt text](https://raw.github.com/Ukiplezet/Chat_app/main/Project_images\chat_app_cover.png?raw=true "Signup page")
 
 ### Create new channel:
 
