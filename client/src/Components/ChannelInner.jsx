@@ -9,7 +9,6 @@ import {
   useChannelStateContext,
   useChatContext,
 } from "stream-chat-react";
-import Cookies from "universal-cookie";
 
 import { ChannelInfo } from "../assets";
 
@@ -112,7 +111,7 @@ const TeamChannelHeader = ({ setIsEditing }) => {
       <MessagingHeader />
       <div className="team-channel-header__right">
         <p className="team-channel-header__right-text">{getUserFullName()}</p>
-        
+
         <p className="team-channel-header__right-text">
           There are {getWatcherText(watcher_count)}
         </p>
