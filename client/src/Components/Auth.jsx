@@ -23,7 +23,8 @@ const Auth = () => {
     e.preventDefault();
     const { username, password, phoneNumber, avatarURL } = form;
 
-    const URL = " https://instant-message-slash.herokuapp.com/auth";
+    const URL = "https://slash-messaging.herokuapp.com/auth";
+    // const URL = "https://localhost:5000/auth";
     try {
       const {
         data: { token, userId, hashedPassword, fullName },
@@ -45,7 +46,7 @@ const Auth = () => {
       }
       window.location.reload();
     } catch (error) {
-      return alert(error.response.data);
+      return alert(error);
     }
   };
   const switchMode = () => {
