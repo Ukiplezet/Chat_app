@@ -25,19 +25,19 @@ Users can:
 
 ### Signup page:
 
-![Alt text](https://raw.github.com/Ukiplezet/Chat_app/main/Project_images\chat_app_cover.png?raw=true "Signup page")
+![Alt text](/Project_images/chat_app_cover.png?raw=true "Signup page")
 
 ### Create new channel:
 
-![Alt text](Project_images\chat_app_create_channel.png?raw=true "Create new Channel")
+![Alt text](/Project_images/chat_app_create_channel.png?raw=true "Create new Channel")
 
 ### Search modal:
 
-![Alt text](Project_images\chat_app_search.png?raw=true "Search modal")
+![Alt text](/Project_images/chat_app_search.png?raw=true "Search modal")
 
 ### Channel overview
 
-![Alt text](Project_images\chat_app.png?raw=true "Search modal")
+![Alt text](/Project_images/chat_app.png?raw=true "Search modal")
 
 ## Getting started
 
